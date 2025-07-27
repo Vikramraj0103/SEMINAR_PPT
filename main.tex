@@ -1,0 +1,354 @@
+\documentclass{beamer}
+\usepackage{etoolbox}
+\AtBeginEnvironment{block}{\setlength{\parskip}{0.3em}}
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+
+% Custom Colors
+\usepackage{xcolor}
+\definecolor{themeblue}{RGB}{0,0,200}
+\definecolor{themecyan}{RGB}{0,150,150}
+\definecolor{themegold}{RGB}{218,165,32}
+\definecolor{themegoldlight}{RGB}{255,215,100}
+\definecolor{themeread}{RGB}{200,0,0}
+\definecolor{themepurple}{RGB}{128,0,128}
+
+% Tables, arrays, graphics
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{transparent}
+\usepackage{tikz}
+\usepackage{calc}
+
+% Theme & layout
+\usetheme{Madrid}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{item}{fg=themeread}
+\setbeamercolor{structure}{fg=themeblue}
+\setbeamercolor{normal text}{fg=black, bg=white}
+\setbeamercolor{title}{fg=themepurple}
+\setbeamercolor{subtitle}{fg=themecyan}
+\setbeamercolor{block title}{fg=white, bg=themecyan}
+\setbeamerfont{title}{size=\LARGE, series=\bfseries}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{footline}{size=\tiny}
+\setbeamercolor{frametitle}{bg=themepurple, fg=white}
+\setbeamerfont{frametitle}{size=\normalsize, series=\bfseries}
+
+% Footer slide number and custom footer
+\setbeamertemplate{footline}{
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.8ex,dp=1.2ex,leftskip=1em,rightskip=1em]{author in head/foot}
+    \color{themegold}
+    \textcolor{white}{Vikram Raj 2414100180}
+    \hfill
+    \textcolor{white}{NoSQL Databases}
+    \hfill
+    \includegraphics[height=0.2cm]{Manipal_University_Jaipur_logo.png}
+    \hfill
+    {\textcolor{white}{\insertframenumber/\inserttotalframenumber}}
+  \end{beamercolorbox}
+}
+
+% Icon macro
+\newcommand{\icon}[1]{\includegraphics[height=0.3cm]{#1}}
+
+%---------------------------------------------------------------%
+% Slide 1: Title Slide
+\begin{document}
+\setbeamertemplate{background canvas}{
+   \includegraphics[width=\paperwidth,height=\paperheight]{Circles.jpg}
+}
+\begin{frame}[plain] 
+\centering
+\includegraphics[width=10cm]{manipal.jpg}
+\vspace{0.1cm}
+\centering
+\setlength{\fboxsep}{1.5pt}
+\fcolorbox{themeblue}{themecyan!10!white}{
+\begin{minipage}{0.9\textwidth}
+    \centering
+    {\LARGE\bfseries \textcolor{themepurple}{NOSQL DATABASES}}\\[0.3em]
+    {\large \textcolor{themeblue}{MCA Seminar Report Presentation}}\\[0.2em]
+    {\small\textcolor{themecyan}{Submitted By: VIKRAM RAJ}}\\[0.2em]
+    {\scriptsize in partial fulfillment for the award of the degree of}\\
+    {\small\textcolor{themegold}{MASTER OF COMPUTER APPLICATIONS}}\\[0.1em]
+    {\scriptsize\textcolor{themeread}{Centre for Distance and Online Education}}\\
+    {\small\textcolor{themeblue}{Manipal University, Jaipur}}
+\end{minipage}
+}
+\vspace{-0.2cm}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\rowcolors{1}{themegold!20!white}{themecyan!10!white}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|>{\bfseries}l|l|}
+\hline
+\textcolor{themeread}{Name} & \textcolor{themecyan}{Vikram Raj} \\
+\hline
+\textcolor{themeread}{Roll No.} & \textcolor{themeblue}{2414100180} \\
+\hline
+\textcolor{themeread}{Course Code} & \textcolor{themepurple}{MCA 7131} \\
+\hline
+\textcolor{themeread}{Email} & \textcolor{themegold}{2414100180@mujonline.edu.in} \\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+\setbeamertemplate{background canvas}[default]
+
+% Slide 2: Motivation
+\begin{frame}[t]
+\frametitle{Q1. Why I chose NoSQL Databases?}
+\vspace{-0.3cm}
+\begin{itemize}
+    \item \icon{check-mark.png} Related to my specialization (Open Source DB)
+    \item \icon{check-mark.png} High demand in industry for NoSQL skills
+    \item \icon{check-mark.png} Curiosity about scalable and flexible database solutions
+\end{itemize}
+\vspace{0.1cm}
+\textbf{Key Point:} Rapidly growing unstructured data volumes.
+\begin{block}{Motivation:}
+    \begin{itemize}
+        \item \icon{check-mark.png} NoSQL enables modern data-driven applications
+    \end{itemize}
+\end{block}
+\vspace{0.1cm}
+
+\centering
+\includegraphics[height=3.5cm,width=10cm]{NoSQL_Market_Overview.png}\\
+\scriptsize \textcolor{gray}{Data Growth Trends}
+\end{frame}
+
+% Slide 3: Objectives vs Literature Review
+\begin{frame}
+\frametitle{Q2. Objectives vs Literature Review}
+\vspace{-0.3cm}
+\begin{block}{Objectives}
+    \begin{itemize}
+        \item \icon{check-mark.png} Study NoSQL types, architecture, and applications
+    \end{itemize}
+\end{block}
+\vspace{-0.1cm}
+\begin{block}{Literature Review}
+    \begin{itemize}
+        \item \icon{check-mark.png} Research on MongoDB, Cassandra, Redis, Neo4j
+    \end{itemize}
+\end{block}
+\vspace{0.2cm}
+\textbf{Objective:} Understand scalability, schema flexibility vs RDBMS
+\textbf{Literature:} NoSQL better for big data, unstructured/varied data models
+\textbf{Key Point:}  Literature validates shift from traditional DBs to NoSQL. 
+\vspace{0.3cm}
+\begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[height=2cm,width=\linewidth]{nosql db feature matrix.png}
+    \par\scriptsize\textcolor{gray}{NoSQL Feature}
+    \column{0.5\textwidth}
+    \includegraphics[height=2cm,width=\linewidth]{Relational-Database-VS-NoSQL.jpg}
+    \par\scriptsize\textcolor{gray}{RDBMS vs. NoSQL}
+\end{columns}
+
+\end{frame}
+
+% Slide 4: Challenges
+\begin{frame}
+\frametitle{Q3. Challenges Faced}
+\vspace{-0.4cm}
+\begin{block}{Struggles:}
+    \begin{itemize}
+        \item \icon{challenges.png} Vast landscape of NoSQL technologies
+        \item \icon{challenges.png} Complex distributed architectures
+        \item \icon{challenges.png} Technical jargon in research
+        \item \icon{challenges.png} Limited time for deep-dives
+        \item \icon{challenges.png} Steep learning curve for hands-on work
+    \end{itemize}
+\end{block}
+\vspace{0.1cm}
+\begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[height=3.5cm,width=\linewidth]{nosqldatbase challenge.png}
+    \par\scriptsize\textcolor{gray}{NoSQL DataBase Challenge}
+    \column{0.5\textwidth}
+    \includegraphics[height=3.5cm,width=\linewidth]{Research-cover.jpg}
+    \par\scriptsize\textcolor{gray}{Research Of NoSQL}
+\end{columns}
+\end{frame}
+
+% Slide 5: Findings
+
+\begin{frame}[t]
+\frametitle{Q4. Key Findings}
+\vspace{-0.4cm}
+\begin{itemize}
+    \item\icon{no-sql-logo.png} NoSQL offers high scalability, flexibility, performance and speed\\
+    \item \icon{mongodb_logo.png} MongoDB: Document store; strong for JSON-like data
+    \item \icon{Cassandra_logo.png} Cassandra: Write-heavy distributed apps
+    \item \icon{redis-logo.png} Redis: Ultra-fast in-memory caching
+    \item \icon{neo4j-logo.png} Neo4j: Powerful for graph \& relationship-based queries
+\end{itemize}
+\vspace{-0.15cm}
+\begin{block}{Major finding:}
+    \begin{itemize}
+        \item \icon{check-mark.png} Sharding \& replication deliver high availability.
+    \end{itemize}
+\end{block}
+\vspace{0.1cm}
+\begin{columns}
+    \column{0.5\textwidth}
+    \hspace*{0.5cm}\includegraphics[height=3cm,width=4.5cm]{shard.jpg}
+    \par\scriptsize\textcolor{gray}{Sharding \& Replication}
+    \column{0.5\textwidth}
+    \hspace*{0.5cm}\includegraphics[height=3cm,width=4.5cm]{NEO4JGDB.jpg}
+    \par\scriptsize\textcolor{gray}{NEO4j Ecosystem}
+\end{columns}
+\end{frame}
+
+% Slide 6: Gap Bridging
+\begin{frame}[t]
+\frametitle{Q5. Bridging the Gap with Industry}
+\vspace{-0.4cm}
+\begin{itemize}
+    \item \icon{check-mark.png} Study goals match real-world NoSQL adoption
+    \item \icon{check-mark.png} Netflix (Cassandra), Facebook (Graph DB), Amazon (DynamoDB)
+    \item \icon{check-mark.png} Rapid scaling and dynamic data needs are met by NoSQL
+    \item \icon{check-mark.png} Industry trends confirm academic insights
+    \item \icon{check-mark.png} Lifelong learning and upskilling
+\end{itemize}
+\vspace{-0.2cm}
+\begin{block}{Guest Lectures and Workshops:}
+    \begin{itemize}
+        \item \icon{check-mark.png} Invite industry professionals to share their expertise and insights with students.
+    \end{itemize}
+\end{block}
+\vspace{-0.2cm}
+\begin{block}{Train students in valuable soft skills:}
+    \begin{itemize}
+        \item \icon{check-mark.png} communication, teamwork, leadership.
+    \end{itemize}
+\end{block}
+\begin{columns}
+    \column{0.22\textwidth}
+    \hspace*{0.6cm}\includegraphics[width=1.5cm]{facebook.png}
+    \column{0.22\textwidth}
+    \includegraphics[width=1.5cm]{uber.png}
+    \column{0.22\textwidth}
+    \includegraphics[width=1.5cm]{amazon.png}
+    \column{0.22\textwidth}
+    \includegraphics[width=1.5cm]{Netflix.jpg}
+    \column{0.22\textwidth}
+    \includegraphics[width=1.5cm]{google.png}
+\end{columns}
+\end{frame}
+
+% Slide 7: Bridging continuation
+\begin{frame}[t]
+\frametitle{Q6. Industry Alignment Continued}
+\vspace{-0.2cm}
+\begin{block}{Standardization and Best Practices:}
+    \begin{itemize}
+        \item\icon{check-mark.png} Integrate industry-recognized standards and best practices into the curriculum.
+    \end{itemize}
+\end{block}
+\vspace{0.1cm}
+\begin{itemize}
+    \item Real-world distributed systems use NoSQL for scalability
+    \item Examples: Microservices, big data analytics, IoT apps
+    \item Industry/academia: Close overlap in use-cases
+\end{itemize}
+
+\begin{columns}
+    \column{0.5\textwidth}
+    \includegraphics[width=4cm]{nosql database type.png}
+    \par\scriptsize\textcolor{gray}{NoSQL Database Type}
+    \column{0.4\textwidth}
+    \includegraphics[width=5cm]{Benefits-of-Employee.jpg}
+    \par\scriptsize\textcolor{gray}{Tranning \& Development}
+\end{columns}
+\end{frame}
+
+% Slide 8: CAP Theorem & Sharding
+\begin{frame}[t]
+\frametitle{Q7. CAP Theorem \& Sharding (NoSQL)}
+\vspace{-0.4cm}
+\begin{block}{CAP Theorem in NoSQL}
+    \centering
+    \includegraphics[height=2.6cm]{database-cap-therorem.jpg}
+    \par\scriptsize\textcolor{gray}{Consistency, Availability, and Partition Tolerance.}
+\end{block}
+\vspace{-0.1cm}
+\begin{block}{MongoDB Sharding}
+    \centering
+    \includegraphics[width=4cm]{sharding.png}
+    \par\scriptsize\textcolor{gray}{The client application sends a query to a mongos instance.}
+\end{block}
+\end{frame}
+
+% Slide 9: Conclusion & Future Scope
+\begin{frame}
+\frametitle{Q8. Conclusion \& Future Scope}
+\vspace{-0.3cm}
+\begin{columns}
+    \column{0.6\textwidth}
+    \begin{block}{Conclusion:}
+    \begin{itemize}
+        \item \icon{check-mark.png} NoSQL revolutionizes scalable data storage
+        \item \icon{check-mark.png} Enables agile, high-volume applications
+        \item \icon{check-mark.png} Industry-wide adoption, from startups to tech giants
+    \end{itemize}
+    \end{block}
+    \vspace{-0.1cm}
+    \begin{block}{Future Scope:}
+    \begin{itemize}
+        \item \icon{check-mark.png} Integration with AI/ML for smarter data handling
+        \item \icon{check-mark.png} More robust consistency models (hybrid DBs)
+        \item \icon{check-mark.png} As data explodes, NoSQL will be vital for organizations to gain insights.
+    \end{itemize}
+    \end{block}
+    \column{0.4\textwidth}
+    \centering
+    \includegraphics[height=2.5cm]{marketsize.jpeg}\\
+    \par\scriptsize\textcolor{gray}{GLOBAL MARKET SIZE.}\vspace{0.3cm}
+    \includegraphics[height=3.5cm]{summary.jpg}
+    \par\scriptsize\textcolor{gray}{CONCLUSION.}
+\end{columns}
+\end{frame}
+
+% Slide 10: Thank You
+\setbeamertemplate{background canvas}{
+   \includegraphics[width=\paperwidth,height=\paperheight]{backgr1.jpg}
+}
+\begin{frame}[plain]
+    \centering
+    \vfill
+    \includegraphics[height=1cm]{happy.png}
+    \vspace{0.2cm}
+    {\huge \textcolor{themepurple}{Thank You!}}\par
+    \vspace{0.2cm}
+    {\small \textcolor{themecyan}{Thank you for your time and attention.\\
+    I'm grateful for this opportunity to share my work\\
+    \& Looking forward to your insights and suggestions.\\}}
+    \vspace{0.2cm}
+    {\large \textcolor{themegold}{Vikram Raj\\ Roll no. 2414100180\\MCA 7131\\2414100180@mujonline.edu.in}}\\
+    \vspace{0.3cm}
+    \begin{center}
+    \begin{tikzpicture}
+    \clip (0,0) circle (1.75cm);
+    \node at (0,0) {\includegraphics[width=4cm]{newthank.jpg}};
+    \draw[thick,themeblue] (0,0) circle (1.8cm);
+    \end{tikzpicture}
+    \end{center}
+    \vfill
+\end{frame}
+\setbeamertemplate{background canvas}[default]
+\end{document}
